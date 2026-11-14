@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon Service Ltd. 🐸 - অফিশিয়াল প্র্যাঙ্ক ও বুকিং সেন্টার</title>
+    <title>Simon Service Ltd. 🐸 - অফিশিয়াল প্র্যাঙ্ক ও বুকিং হাব</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -14,171 +14,322 @@
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen flex flex-col justify-between">
 
-    <!-- Navbar -->
-    <nav class="border-b border-yellow-200 bg-[#FFFFFF]/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-extrabold text-[#111827] flex items-center gap-2">
-                <span class="bg-[#EAB308] text-white px-2.5 py-1 rounded-lg shadow-sm">🐸</span> 
-                <span>SIMON <span class="text-[#EAB308]">SERVICE</span></span>
-            </h1>
-            <button onclick="dontClickPrank()" class="bg-[#EF4444] hover:bg-red-600 text-white text-xs md:text-sm px-4 py-2 rounded-full font-bold shadow-md animate-bounce transition">
-                ⚠️ Don't Click!
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero Section with Simon's Photo -->
-    <header class="max-w-4xl mx-auto px-4 py-12 text-center">
-        <div class="inline-block bg-[#FEFCE8] border border-[#EAB308] px-5 py-1.5 rounded-full text-xs md:text-sm font-bold text-[#111827] mb-6 shadow-sm">
-            ✨ ১০০% ভুয়া গ্যারান্টি, কাজ না হলে সাইমন হাওয়া! ✨
-        </div>
-        
-        <!-- Simon's Photo Frame -->
-        <div class="relative w-40 h-40 mx-auto mb-6 rounded-full p-1.5 bg-[#EAB308] shadow-xl">
-            <img src="simon.jpg" alt="Simon" class="w-full h-full object-cover rounded-full border-4 border-[#FFFFFF]" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=60'">
-            <span class="absolute bottom-1 right-1 bg-[#EF4444] text-white text-xs px-3 py-0.5 rounded-full font-bold border-2 border-[#FFFFFF] shadow">CEO</span>
-        </div>
-
-        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-[#111827]">
-            যেকোনো বিপদে <span class="bg-[#EAB308] text-white px-3 rounded-xl inline-block transform -rotate-1">সাইমন</span> সবার আগে উধাও!
-        </h2>
-        <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium">
-            ফ্রেন্ড জোন থেকে উদ্ধার পাওয়া থেকে শুরু করে আড্ডায় অযথা জ্ঞান দেওয়ার একমাত্র নির্ভরযোগ্য প্রতিষ্ঠান। আজই আপনার ফ্রি স্লট বুক করুন!
-        </p>
-    </header>
-
-    <!-- Services / Packages -->
-    <main class="max-w-5xl mx-auto px-4 pb-16">
-        <h3 class="text-2xl font-extrabold mb-6 text-center border-b-2 border-[#EAB308] pb-3 text-[#111827] inline-block mx-auto flex justify-center">
-            🔥 প্রিমিয়াম ফান প্যাকেজসমূহ
-        </h3>
-        
-        <div class="grid md:grid-cols-2 gap-6 mb-12 mt-4">
-            <!-- Package 1 -->
-            <div class="bg-[#FEFCE8] border-2 border-[#EAB308]/40 rounded-2xl p-6 hover:border-[#EAB308] transition shadow-md">
-                <div class="text-3xl mb-3">🏃‍♂️</div>
-                <h4 class="text-xl font-extrabold text-[#111827] mb-2">বিপদ দেখলে ভোঁ দৌড় প্যাকেজ</h4>
-                <p class="text-gray-700 text-sm mb-5">হঠাৎ কোনো ঝামেলা বা স্যার সামনে পড়লে সাইমন সবার আগে চোখের পলকে পালিয়ে যাবে এবং আপনাকে চেনার ভান করবে না।</p>
-                <div class="flex justify-between items-center pt-2 border-t border-yellow-200">
-                    <span class="text-xs bg-white border border-yellow-300 text-[#111827] px-3 py-1.5 rounded-lg font-bold">মূল্য: ১ কাপ রং চা</span>
-                    <button onclick="bookService('ভোঁ দৌড় প্যাকেজ')" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-5 py-2 rounded-xl text-sm transition shadow">বুক করুন</button>
-                </div>
+    <div>
+        <!-- Navbar -->
+        <nav class="border-b border-yellow-200 bg-[#FFFFFF]/90 backdrop-blur sticky top-0 z-50">
+            <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 class="text-2xl font-extrabold text-[#111827] flex items-center gap-2">
+                    <span class="bg-[#EAB308] text-white px-2.5 py-1 rounded-lg shadow-sm">🐸</span> 
+                    <span>SIMON <span class="text-[#EAB308]">SERVICE</span></span>
+                </h1>
+                <button onclick="dontClickPrank()" class="bg-[#EF4444] hover:bg-red-600 text-white text-xs md:text-sm px-4 py-2 rounded-full font-bold shadow-md animate-bounce transition">
+                    ⚠️ Don't Click!
+                </button>
             </div>
+        </nav>
 
-            <!-- Package 2 -->
-            <div class="bg-[#FEFCE8] border-2 border-[#EAB308]/40 rounded-2xl p-6 hover:border-[#EAB308] transition shadow-md">
-                <div class="text-3xl mb-3">🗣️</div>
-                <h4 class="text-xl font-extrabold text-[#111827] mb-2">অযথা জ্ঞান ও পাম দেওয়া সার্ভিস</h4>
-                <p class="text-gray-700 text-sm mb-5">আড্ডায় বা জুনিয়রদের সামনে আপনাকে মহা পন্ডিত সাজাতে সাইমন এসে একটানা চাপাবাজি করবে এবং আপনার সব কথায় বাহবা দেবে।</p>
-                <div class="flex justify-between items-center pt-2 border-t border-yellow-200">
-                    <span class="text-xs bg-white border border-yellow-300 text-[#111827] px-3 py-1.5 rounded-lg font-bold">মূল্য: ১০০% ফ্রি</span>
-                    <button onclick="bookService('পাম দেওয়া সার্ভিস')" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-5 py-2 rounded-xl text-sm transition shadow">বুক করুন</button>
-                </div>
+        <!-- Hero Section with Simon's Photo -->
+        <header class="max-w-4xl mx-auto px-4 py-12 text-center">
+            <div class="inline-block bg-[#FEFCE8] border border-[#EAB308] px-5 py-1.5 rounded-full text-xs md:text-sm font-bold text-[#111827] mb-6 shadow-sm">
+                ✨ ১০০% ভুয়া গ্যারান্টি, কাজ না হলে সাইমন হাওয়া! ✨
             </div>
-
-            <!-- Package 3 -->
-            <div class="bg-[#FEFCE8] border-2 border-[#EAB308]/40 rounded-2xl p-6 hover:border-[#EAB308] transition shadow-md">
-                <div class="text-3xl mb-3">💸</div>
-                <h4 class="text-xl font-extrabold text-[#111827] mb-2">ধার চাওয়ার মর্মান্তিক অজুহাত</h4>
-                <p class="text-gray-700 text-sm mb-5">পকেটে টাকা না থাকলে বা কারো থেকে ধার নিতে চাইলে সাইমন এমন নিখুঁত ও করুণ কান্নার গল্প বানিয়ে দেবে যে টাকা দিতে বাধ্য হবে!</p>
-                <div class="flex justify-between items-center pt-2 border-t border-yellow-200">
-                    <span class="text-xs bg-white border border-yellow-300 text-[#111827] px-3 py-1.5 rounded-lg font-bold">মূল্য: ১ প্যাকেট চিপস</span>
-                    <button onclick="bookService('ধার চাওয়ার অজুহাত')" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-5 py-2 rounded-xl text-sm transition shadow">বুক করুন</button>
-                </div>
-            </div>
-
-            <!-- Package 4 -->
-            <div class="bg-[#FEFCE8] border-2 border-[#EAB308]/40 rounded-2xl p-6 hover:border-[#EAB308] transition shadow-md">
-                <div class="text-3xl mb-3">🛌</div>
-                <h4 class="text-xl font-extrabold text-[#111827] mb-2">সারাদিন ঘুমিয়ে কাটানোর গাইড</h4>
-                <p class="text-gray-700 text-sm mb-5">কীভাবে কোনো কাজ ছাড়া ২৪ ঘণ্টার মধ্যে ১৮ ঘণ্টা ঘুমানো যায় এবং দুনিয়ার কোনো টেনশন না নেওয়া যায়, সাইমন তার ট্রেনিং দেবে।</p>
-                <div class="flex justify-between items-center pt-2 border-t border-yellow-200">
-                    <span class="text-xs bg-white border border-yellow-300 text-[#111827] px-3 py-1.5 rounded-lg font-bold">মূল্য: ফ্রি ঘুম</span>
-                    <button onclick="bookService('ঘুমের ট্রেনিং')" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-5 py-2 rounded-xl text-sm transition shadow">বুক করুন</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Photo & Caption Upload Section -->
-        <section class="bg-[#FEFCE8] border-2 border-[#EAB308] rounded-2xl p-6 mb-12 shadow-md">
-            <h3 class="text-xl font-extrabold mb-2 flex items-center gap-2 text-[#111827]">📸 সাইমনের ফানি ছবি ও ক্যাপশন পোস্ট করুন</h3>
-            <p class="text-gray-600 text-sm mb-4">সাইমনের যেকোনো অদ্ভুত ছবি আপলোড করে নিচে ফানি ক্যাপশন লিখে এখানে পাবলিশ করো!</p>
             
-            <div class="space-y-3">
-                <input type="file" id="imageInput" accept="image/*" class="w-full bg-white border border-yellow-300 rounded-xl px-4 py-2 text-sm text-[#111827] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-[#EAB308] file:text-[#111827] hover:file:bg-yellow-500 transition">
-                <textarea id="captionInput" rows="2" placeholder="ছবির সাথে একটা মজার ক্যাপশন লিখুন..." class="w-full bg-white border border-yellow-300 rounded-xl px-4 py-3 text-sm text-[#111827] focus:outline-none focus:border-[#EAB308] transition resize-none"></textarea>
-                <button onclick="uploadPost()" class="w-full bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold py-3 rounded-xl text-sm transition shadow">পোস্ট করুন 🚀</button>
+            <!-- Simon's Photo Frame -->
+            <div class="relative w-40 h-40 mx-auto mb-6 rounded-full p-1.5 bg-[#EAB308] shadow-xl">
+                <img src="simon.jpg" alt="Simon" class="w-full h-full object-cover rounded-full border-4 border-[#FFFFFF]" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=60'">
+                <span class="absolute bottom-1 right-1 bg-[#EF4444] text-white text-xs px-3 py-0.5 rounded-full font-bold border-2 border-[#FFFFFF] shadow">CEO</span>
             </div>
 
-            <!-- Dynamic Post Feed -->
-            <div id="postFeed" class="mt-6 space-y-4">
-                <div class="bg-white border border-yellow-200 rounded-xl p-4 shadow-sm">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="w-8 h-8 rounded-full bg-[#EAB308] text-white flex items-center justify-center font-bold text-xs">🐸</span>
-                        <span class="font-bold text-[#111827] text-sm">তারেক (অফিশিয়াল প্র্যাঙ্কস্টার)</span>
+            <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-[#111827]">
+                যেকোনো বিপদে <span class="bg-[#EAB308] text-white px-3 rounded-xl inline-block transform -rotate-1">সাইমন</span> সবার আগে উধাও!
+            </h2>
+            <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium">
+                ফ্রেন্ড জোন থেকে উদ্ধার পাওয়া থেকে শুরু করে আড্ডায় অযথা জ্ঞান দেওয়ার একমাত্র নির্ভরযোগ্য প্রতিষ্ঠান। আজই আপনার ফ্রি স্লট বুক করুন!
+            </p>
+        </header>
+
+        <!-- Services / Packages -->
+        <main class="max-w-5xl mx-auto px-4 pb-16">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-extrabold border-b-2 border-[#EAB308] pb-3 text-[#111827] inline-block">
+                    🔥 প্রিমিয়াম ফান প্যাকেজসমূহ
+                </h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <!-- Package 1 -->
+                <div class="bg-[#FEFCE8] border-2 border-[#EAB308]/40 rounded-2xl p-6 hover:border-[#EAB308] transition shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="text-3xl mb-3">🏃‍♂️</div>
+                        <h4 class="text-xl font-extrabold text-[#111827] mb-2">বিপদ দেখলে ভোঁ দৌড় প্যাকেজ</h4>
+                        <p class="text-gray-700 text-sm mb-5">হঠাৎ কোনো ঝামেলা বা স্যার সামনে পড়লে সাইমন সবার আগে চোখের পলকে পালিয়ে যাবে এবং আপনাকে চেনার ভান করবে না।</p>
                     </div>
-                    <p class="text-sm text-gray-800 mb-3">সারাদিন ঘুমানোর পর সাইমনের রিয়্যাক্ট! কেউ ডিস্টার্ব করবা না প্লিজ 😴🔥</p>
-                    <img src="simon.jpg" alt="Simon Post" class="w-full max-h-72 object-cover rounded-lg border border-yellow-100" onerror="this.style.display='none'">
+                    <div class="flex justify-between items-center pt-2 border-t border-yellow-200">
+                        <span class="text-xs bg-white border border-yellow-300 text-[#111827] px-3 py-1.5 rounded-lg font-bold">মূল্য: ১ কাপ রং চা</span>
+                        <button onclick="openBookingModal('ভোঁ দৌড় প্যাকেজ')" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-5 py-2 rounded-xl text-sm transition shadow">বুক করুন</button>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="bg-[#FEFCE8] border-2 border-[#EAB308]/40 rounded-2xl p-6 hover:border-[#EAB308] transition shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="text-3xl mb-3">🗣️</div>
+                        <h4 class="text-xl font-extrabold text-[#111827] mb-2">অযথা জ্ঞান ও পাম দেওয়া সার্ভিস</h4>
+                        <p class="text-gray-700 text-sm mb-5">আড্ডায় বা জুনিয়রদের সামনে আপনাকে মহা পন্ডিত সাজাতে সাইমন এসে একটানা চাপাবাজি করবে এবং আপনার সব কথায় বাহবা দেবে।</p>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-yellow-200">
+                        <span class="text-xs bg-white border border-yellow-300 text-[#111827] px-3 py-1.5 rounded-lg font-bold">মূল্য: ১০০% ফ্রি</span>
+                        <button onclick="openBookingModal('পাম দেওয়া সার্ভিস')" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-5 py-2 rounded-xl text-sm transition shadow">বুক করুন</button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-[#FEFCE8] border-2 border-[#EAB308]/40 rounded-2xl p-6 hover:border-[#EAB308] transition shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="text-3xl mb-3">💸</div>
+                        <h4 class="text-xl font-extrabold text-[#111827] mb-2">ধার চাওয়ার মর্মান্তিক অজুহাত</h4>
+                        <p class="text-gray-700 text-sm mb-5">পকেটে টাকা না থাকলে বা কারো থেকে ধার নিতে চাইলে সাইমন এমন নিখুঁত ও করুণ কান্নার গল্প বানিয়ে দেবে যে টাকা দিতে বাধ্য হবে!</p>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-yellow-200">
+                        <span class="text-xs bg-white border border-yellow-300 text-[#111827] px-3 py-1.5 rounded-lg font-bold">মূল্য: ১ প্যাকেট চিপস</span>
+                        <button onclick="openBookingModal('ধার চাওয়ার অজুহাত')" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-5 py-2 rounded-xl text-sm transition shadow">বুক করুন</button>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="bg-[#FEFCE8] border-2 border-[#EAB308]/40 rounded-2xl p-6 hover:border-[#EAB308] transition shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="text-3xl mb-3">🛌</div>
+                        <h4 class="text-xl font-extrabold text-[#111827] mb-2">সারাদিন ঘুমিয়ে কাটানোর গাইড</h4>
+                        <p class="text-gray-700 text-sm mb-5">কীভাবে কোনো কাজ ছাড়া ২৪ ঘণ্টার মধ্যে ১৮ ঘণ্টা ঘুমানো যায় এবং দুনিয়ার কোনো টেনশন না নেওয়া যায়, সাইমন তার ট্রেনিং দেবে।</p>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-yellow-200">
+                        <span class="text-xs bg-white border border-yellow-300 text-[#111827] px-3 py-1.5 rounded-lg font-bold">মূল্য: ফ্রি ঘুম</span>
+                        <button onclick="openBookingModal('ঘুমের ট্রেনিং')" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-5 py-2 rounded-xl text-sm transition shadow">বুক করুন</button>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Booking & Warning Modal Box -->
-        <div id="bookingModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div class="bg-[#FFFFFF] border-4 border-[#EAB308] rounded-2xl p-6 max-w-md w-full text-center shadow-2xl">
-                <div id="modalIcon" class="text-5xl mb-3">🎉</div>
-                <h4 id="modalTitle" class="text-2xl font-extrabold text-[#111827] mb-2">বুকিং কনফার্মড!</h4>
-                <p id="modalText" class="text-gray-700 text-sm mb-6 font-medium"></p>
-                <button onclick="closeModal()" class="bg-[#EF4444] hover:bg-red-600 text-white px-6 py-2.5 rounded-xl text-sm font-bold w-full transition shadow">ঠিক আছে, বন্ধ করো</button>
-            </div>
-        </div>
+            <!-- Photo & Caption Upload Section -->
+            <section class="bg-[#FEFCE8] border-2 border-[#EAB308] rounded-2xl p-6 mb-12 shadow-md">
+                <h3 class="text-xl font-extrabold mb-2 flex items-center gap-2 text-[#111827]">📸 সাইমনের ফানি ছবি ও ক্যাপশন পোস্ট করুন</h3>
+                <p class="text-gray-600 text-sm mb-4">সাইমনের যেকোনো অদ্ভুত ছবি আপলোড করে নিচে ফানি ক্যাপশন লিখে এখানে পাবলিশ করো!</p>
+                
+                <div class="space-y-3">
+                    <input type="file" id="imageInput" accept="image/*" class="w-full bg-white border border-yellow-300 rounded-xl px-4 py-2 text-sm text-[#111827] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-[#EAB308] file:text-[#111827] hover:file:bg-yellow-500 transition">
+                    <textarea id="captionInput" rows="2" placeholder="ছবির সাথে একটা মজার ক্যাপশন লিখুন..." class="w-full bg-white border border-yellow-300 rounded-xl px-4 py-3 text-sm text-[#111827] focus:outline-none focus:border-[#EAB308] transition resize-none"></textarea>
+                    <button onclick="uploadPost()" class="w-full bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold py-3 rounded-xl text-sm transition shadow">পোস্ট করুন 🚀</button>
+                </div>
 
-        <!-- Comment Section -->
-        <section class="bg-[#FEFCE8] border-2 border-[#EAB308]/50 rounded-2xl p-6 shadow-md">
-            <h3 class="text-xl font-extrabold mb-4 flex items-center gap-2 text-[#111827]">💬 বন্ধুদের মন্তব্য ও রিভিউ (Wall of Shame)</h3>
+                <!-- Dynamic Post Feed -->
+                <div id="postFeed" class="mt-6 space-y-4">
+                    <div class="bg-white border border-yellow-200 rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-8 h-8 rounded-full bg-[#EAB308] text-white flex items-center justify-center font-bold text-xs">🐸</span>
+                            <span class="font-bold text-[#111827] text-sm">তারেক (অফিশিয়াল প্র্যাঙ্কস্টার)</span>
+                        </div>
+                        <p class="text-sm text-gray-800 mb-3">সারাদিন ঘুমানোর পর সাইমনের রিয়্যাক্ট! কেউ ডিস্টার্ব করবা না প্লিজ 😴🔥</p>
+                        <img src="simon.jpg" alt="Simon Post" class="w-full max-h-72 object-cover rounded-lg border border-yellow-100" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comment Section -->
+            <section class="bg-[#FEFCE8] border-2 border-[#EAB308]/50 rounded-2xl p-6 shadow-md">
+                <h3 class="text-xl font-extrabold mb-4 flex items-center gap-2 text-[#111827]">💬 বন্ধুদের মন্তব্য ও রিভিউ (Wall of Shame)</h3>
+                
+                <div class="space-y-4 mb-6" id="commentList">
+                    <!-- Comment 1 -->
+                    <div class="bg-white p-4 rounded-xl border border-yellow-200 text-sm shadow-sm space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-extrabold text-[#EAB308]">তারেক</span>
+                            <div class="flex gap-1.5 text-xs">
+                                <button onclick="reactToComment(this, '😂')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">😂 <span class="count">3</span></button>
+                                <button onclick="reactToComment(this, '🔥')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">🔥 <span class="count">1</span></button>
+                                <button onclick="reactToComment(this, '🐸')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">🐸 <span class="count">5</span></button>
+                            </div>
+                        </div>
+                        <p class="text-gray-800">ভাই কালকে চা খাওয়াবি বলছিলি, সার্ভিস কবে পামু? ঝুলে আছি তোর সার্ভিসের আশায়! ☕😂</p>
+                        <div class="replies-container pl-4 border-l-2 border-yellow-300 space-y-2 mt-2">
+                            <div class="text-xs bg-yellow-50 p-2 rounded-lg text-gray-700"><b>সাইমন (সিইও):</b> বাজেট পাস হোক, তারপর ভাবা যাবে! 🥱</div>
+                        </div>
+                        <div class="flex gap-2 mt-2 pt-2 border-t border-gray-100">
+                            <input type="text" placeholder="উত্তর বা রিপ্লাই দিন..." class="reply-input bg-gray-50 border border-yellow-200 rounded-lg px-3 py-1.5 text-xs flex-1 focus:outline-none">
+                            <button onclick="addReply(this)" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-bold px-3 py-1.5 rounded-lg text-xs transition">রিপ্লাই</button>
+                        </div>
+                    </div>
+
+                    <!-- Comment 2 -->
+                    <div class="bg-white p-4 rounded-xl border border-yellow-200 text-sm shadow-sm space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-extrabold text-[#EF4444]">জোনায়েদ</span>
+                            <div class="flex gap-1.5 text-xs">
+                                <button onclick="reactToComment(this, '😂')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">😂 <span class="count">7</span></button>
+                                <button onclick="reactToComment(this, '🔥')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">🔥 <span class="count">4</span></button>
+                                <button onclick="reactToComment(this, '🐸')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">🐸 <span class="count">2</span></button>
+                            </div>
+                        </div>
+                        <p class="text-gray-800">এই পোলার সার্ভিস নিয়েছিলাম, ফোন দিলে শুধু রিং বাজে রিসিভ করে না! ১০/১০ বাটপার। 🐸🔥</p>
+                        <div class="replies-container pl-4 border-l-2 border-yellow-300 space-y-2 mt-2"></div>
+                        <div class="flex gap-2 mt-2 pt-2 border-t border-gray-100">
+                            <input type="text" placeholder="উত্তর বা রিপ্লাই দিন..." class="reply-input bg-gray-50 border border-yellow-200 rounded-lg px-3 py-1.5 text-xs flex-1 focus:outline-none">
+                            <button onclick="addReply(this)" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-bold px-3 py-1.5 rounded-lg text-xs transition">রিপ্লাই</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-2">
+                    <input type="text" id="commentInput" placeholder="আপনার একটা মজার কমেন্ট লিখুন..." class="bg-white border border-yellow-300 rounded-xl px-4 py-3 text-sm text-[#111827] flex-1 focus:outline-none focus:border-[#EAB308] transition">
+                    <button onclick="addComment()" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-6 py-3 rounded-xl text-sm transition shadow">কমেন্ট করো</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Booking Input Modal Box -->
+    <div id="bookingInputModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div class="bg-[#FFFFFF] border-4 border-[#EAB308] rounded-2xl p-6 max-w-md w-full shadow-2xl">
+            <h4 class="text-2xl font-extrabold text-[#111827] mb-2">সার্ভিস বুকিং ফর্ম</h4>
+            <p id="selectedPackageName" class="text-sm font-bold text-[#EAB308] mb-4"></p>
             
-            <div class="space-y-3 mb-6" id="commentList">
-                <div class="bg-white p-3.5 rounded-xl border border-yellow-200 text-sm shadow-sm">
-                    <span class="font-extrabold text-[#EAB308]">তারেক:</span> ভাই কালকে চা খাওয়াবি বলছিলি, সার্ভিস কবে পামু? ঝুলে আছি তোর সার্ভিসের আশায়! ☕😂
+            <div class="space-y-3 mb-5">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">আপনার নাম:</label>
+                    <input type="text" id="clientName" placeholder="এখানে আপনার নাম লিখুন..." class="w-full bg-yellow-50/50 border border-yellow-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#EAB308]">
                 </div>
-                <div class="bg-white p-3.5 rounded-xl border border-yellow-200 text-sm shadow-sm">
-                    <span class="font-extrabold text-[#EF4444]">জোনায়েদ:</span> এই পোলার সার্ভিস নিয়েছিলাম, ফোন দিলে শুধু রিং বাজে রিসিভ করে না! ১০/১০ বাটপার। 🐸🔥
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">কী কাজ করাবেন? (ঐচ্ছিক):</label>
+                    <input type="text" id="clientCustomTask" placeholder="যেমন: স্যারকে এড়িয়ে যাওয়ার বুদ্ধি দিন..." class="w-full bg-yellow-50/50 border border-yellow-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#EAB308]">
                 </div>
             </div>
 
             <div class="flex gap-2">
-                <input type="text" id="commentInput" placeholder="আপনার একটা মজার কমেন্ট লিখুন..." class="bg-white border border-yellow-300 rounded-xl px-4 py-3 text-sm text-[#111827] flex-1 focus:outline-none focus:border-[#EAB308] transition">
-                <button onclick="addComment()" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-extrabold px-6 py-3 rounded-xl text-sm transition shadow">কমেন্ট করো</button>
+                <button onclick="closeBookingInputModal()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2.5 rounded-xl text-sm font-bold w-1/2 transition">বাতিল</button>
+                <button onclick="generateReceipt()" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] px-4 py-2.5 rounded-xl text-sm font-extrabold w-1/2 transition shadow">রসিদ নিন</button>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-6 text-gray-500 text-xs border-t border-yellow-200 bg-[#FEFCE8]">
-        © ২০২৬ Simon Service Ltd. — Developed under OVRANEQ Network & Prank Department 🐸✨
+    <!-- Official Professional Receipt Modal Box -->
+    <div id="receiptModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div id="printableReceipt" class="bg-white border-2 border-yellow-400 rounded-2xl p-6 max-w-md w-full shadow-2xl relative text-gray-800">
+            <div class="text-center border-b-2 border-dashed border-yellow-300 pb-4 mb-4">
+                <h3 class="text-xl font-black text-[#111827]">🐸 SIMON SERVICE LTD.</h3>
+                <p class="text-xs text-gray-500">অফিশিয়াল ভুয়া বুকিং ও প্র্যাঙ্ক রিসিপ্ট</p>
+            </div>
+
+            <div class="space-y-2 text-sm mb-6 bg-[#FEFCE8] p-4 rounded-xl border border-yellow-200">
+                <div class="flex justify-between"><span>বুকিং আইডি:</span> <b id="receiptId" class="text-amber-600">#SIMON-851</b></div>
+                <div class="flex justify-between"><span>তারিখ ও সময়:</span> <b id="receiptDate">14 Nov 2026</b></div>
+                <div class="flex justify-between"><span>গ্রাহকের নাম:</span> <b id="receiptClient">তারেক</b></div>
+                <div class="flex justify-between"><span>নির্বাচিত সার্ভিস:</span> <b id="receiptService">ভোঁ দৌড় প্যাকেজ</b></div>
+                <div class="flex justify-between"><span>কাস্টম রিকোয়েস্ট:</span> <b id="receiptTask">জরুরি সাহায্য প্রয়োজন</b></div>
+                <div class="flex justify-between border-t border-yellow-300 pt-2 mt-2"><span>ফি / মূল্য:</span> <b class="text-red-500">১ কাপ রং চা (বাকিাগী)</b></div>
+            </div>
+
+            <div class="text-center text-xs text-gray-500 mb-6">
+                * শর্ত প্রযোজ্য: সাইমন যেকোনো মুহূর্তে বুকিং বাতিল করে উধাও হওয়ার পূর্ণ অধিকার রাখে।
+            </div>
+
+            <div class="flex gap-2">
+                <button onclick="downloadReceipt()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl text-xs font-bold w-1/2 transition shadow">📥 ডাউনলোড / প্রিন트</button>
+                <button onclick="closeReceiptModal()" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold w-1/2 transition shadow">বন্ধ করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prank Warning Modal Box -->
+    <div id="warningModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div class="bg-[#FFFFFF] border-4 border-[#EF4444] rounded-2xl p-6 max-w-md w-full text-center shadow-2xl">
+            <div class="text-5xl mb-3">🚨</div>
+            <h4 class="text-2xl font-extrabold text-[#EF4444] mb-2">সতর্কবার্তা! নিষেধ করছিলাম না?!</h4>
+            <p class="text-gray-700 text-sm mb-6 font-medium">মানা করার পরও ক্লিক করলি কেন? এখন তোর ফোনের সব ব্যালেন্স কেটে সাইমনকে <b>২ কাপ স্পেশাল মালাই চা</b> খাওয়ানোর বিল জেনারেট হয়ে গেছে! 🐸💸</p>
+            <button onclick="closeWarningModal()" class="bg-[#EF4444] hover:bg-red-600 text-white px-6 py-2.5 rounded-xl text-sm font-bold w-full transition shadow">ঠিক আছে, মাফ করে দিলাম</button>
+        </div>
+    </div>
+
+    <!-- Grand Footer Branding -->
+    <footer class="bg-[#FEFCE8] border-t-2 border-yellow-300 py-8 px-4 text-center mt-16">
+        <div class="max-w-3xl mx-auto space-y-3">
+            <h2 class="text-xl md:text-2xl font-black text-[#111827] tracking-wide">
+                🚀 Powered By <span class="text-amber-600">OVRANEQ</span> & <span class="text-indigo-600">ZOBAID KHAN TANVIR</span>
+            </h2>
+            <p class="text-gray-600 text-xs md:text-sm font-medium">
+                সর্বস্বত্ব সংরক্ষিত © ২০২৬ | সাইমন সার্ভিস লিমিটেড কর্পোরেট নেটওয়ার্কের একটি সম্পূর্ণ কাল্পনিক ও ফান প্র্যাঙ্ক ভেঞ্চার। এখানে বাস্তবের সাথে মিল পাওয়া গেলে কর্তৃপক্ষ দায়ী নয়! 🐸✨
+            </p>
+        </div>
     </footer>
 
     <script>
-        function bookService(serviceName) {
-            document.getElementById('modalIcon').innerText = '🎉';
-            document.getElementById('modalTitle').innerText = 'বুকিং কনফার্মড!';
-            document.getElementById('modalTitle').style.color = '#111827';
-            document.getElementById('modalText').innerHTML = `অভিনন্দন! আপনি সফলভাবে <b>"${serviceName}"</b> বুক করেছেন। সাইমন খুব শীঘ্রই আপনার দেওয়া চা বা চিপসের খোঁজে হাজির হবে! 🏃‍♂️💨`;
-            document.getElementById('bookingModal').classList.remove('hidden');
+        let currentService = '';
+
+        function openBookingModal(serviceName) {
+            currentService = serviceName;
+            document.getElementById('selectedPackageName').innerText = `প্যাকেজ: ${serviceName}`;
+            document.getElementById('clientName').value = '';
+            document.getElementById('clientCustomTask').value = '';
+            document.getElementById('bookingInputModal').classList.remove('hidden');
+        }
+
+        function closeBookingInputModal() {
+            document.getElementById('bookingInputModal').classList.add('hidden');
+        }
+
+        function generateReceipt() {
+            const name = document.getElementById('clientName').value.trim();
+            const task = document.getElementById('clientCustomTask').value.trim();
+
+            if(name === '') {
+                alert('দয়া করে আপনার নামটি লিখুন!');
+                return;
+            }
+
+            document.getElementById('receiptId').innerText = `#SIMON-${Math.floor(1000 + Math.random() * 9000)}`;
+            document.getElementById('receiptDate').innerText = new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric' });
+            document.getElementById('receiptClient').innerText = name;
+            document.getElementById('receiptService').innerText = currentService;
+            document.getElementById('receiptTask').innerText = task || 'স্বাভাবিক ফান ও প্র্যাঙ্ক সাপোর্ট';
+
+            closeBookingInputModal();
+            document.getElementById('receiptModal').classList.remove('hidden');
+        }
+
+        function closeReceiptModal() {
+            document.getElementById('receiptModal').classList.add('hidden');
+        }
+
+        function downloadReceipt() {
+            window.print();
         }
 
         function dontClickPrank() {
-            document.getElementById('modalIcon').innerText = '🚨';
-            document.getElementById('modalTitle').innerText = 'সতর্কবার্তা! নিষেধ করছিলাম না?!';
-            document.getElementById('modalTitle').style.color = '#EF4444';
-            document.getElementById('modalText').innerHTML = `মানা করার পরও ক্লিক করলি কেন? এখন তোর ফোনের সব ব্যালেন্স কেটে সাইমনকে <b>২ কাপ স্পেশাল মালাই চা</b> খাওয়ানোর বিল জেনারেট হয়ে গেছে! 🐸💸`;
-            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('warningModal').classList.remove('hidden');
         }
 
-        function closeModal() {
-            document.getElementById('bookingModal').classList.add('hidden');
+        function closeWarningModal() {
+            document.getElementById('warningModal').classList.add('hidden');
+        }
+
+        function reactToComment(btn, emoji) {
+            const countSpan = btn.querySelector('.count');
+            countSpan.innerText = parseInt(countSpan.innerText) + 1;
+            btn.classList.add('bg-yellow-200');
+            setTimeout(() => btn.classList.remove('bg-yellow-200'), 300);
+        }
+
+        function addReply(btn) {
+            const input = btn.previousElementSibling;
+            const text = input.value.trim();
+            if(text === '') return;
+
+            const container = btn.closest('.bg-white').querySelector('.replies-container');
+            const replyDiv = document.createElement('div');
+            replyDiv.className = 'text-xs bg-yellow-50 p-2 rounded-lg text-gray-700';
+            replyDiv.innerHTML = `<b>বন্ধুর উত্তর:</b> ${text}`;
+            container.appendChild(replyDiv);
+            input.value = '';
         }
 
         function addComment() {
@@ -188,8 +339,23 @@
 
             const list = document.getElementById('commentList');
             const newDiv = document.createElement('div');
-            newDiv.className = 'bg-white p-3.5 rounded-xl border border-yellow-200 text-sm shadow-sm';
-            newDiv.innerHTML = `<span class="font-extrabold text-[#EAB308]">গোপন বন্ধু:</span> ${text} 🚀`;
+            newDiv.className = 'bg-white p-4 rounded-xl border border-yellow-200 text-sm shadow-sm space-y-2';
+            newDiv.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="font-extrabold text-[#EAB308]">গোপন বন্ধু</span>
+                    <div class="flex gap-1.5 text-xs">
+                        <button onclick="reactToComment(this, '😂')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">😂 <span class="count">1</span></button>
+                        <button onclick="reactToComment(this, '🔥')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">🔥 <span class="count">0</span></button>
+                        <button onclick="reactToComment(this, '🐸')" class="bg-gray-100 hover:bg-yellow-100 px-2 py-1 rounded-md transition">🐸 <span class="count">0</span></button>
+                    </div>
+                </div>
+                <p class="text-gray-800">${text}</p>
+                <div class="replies-container pl-4 border-l-2 border-yellow-300 space-y-2 mt-2"></div>
+                <div class="flex gap-2 mt-2 pt-2 border-t border-gray-100">
+                    <input type="text" placeholder="উত্তর বা রিপ্লাই দিন..." class="reply-input bg-gray-50 border border-yellow-200 rounded-lg px-3 py-1.5 text-xs flex-1 focus:outline-none">
+                    <button onclick="addReply(this)" class="bg-[#EAB308] hover:bg-yellow-500 text-[#111827] font-bold px-3 py-1.5 rounded-lg text-xs transition">রিপ্লাই</button>
+                </div>
+            `;
             list.prepend(newDiv);
             input.value = '';
         }
