@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Service Ltd. 🐸 - দ্য আল্টিমেট প্র্যাঙ্ক & বুকিং হাব</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+                <span>🐸</span> সাইমন সার্ভিস সেন্টার
+            </h1>
+            <span class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1.5 rounded-full border border-emerald-500/20 font-semibold animate-pulse">
+                🟢 স্ট্যাটাস: ফাও ঘুমাচ্ছে
+            </span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="max-w-4xl mx-auto px-4 py-12 text-center">
+        <div class="inline-block p-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full mb-6">
+            <div class="bg-slate-900 px-6 py-2 rounded-full text-sm font-medium text-emerald-300">
+                ✨ ১০০% গ্যারান্টি, কাজ না হলে হাওয়া! ✨
+            </div>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+            আপনার বিপদে <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">সাইমন</span> সবার আগে উধাও!
+        </h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-8">
+            ফ্রেন্ড জোন থেকে উদ্ধার পাওয়া থেকে শুরু করে আড্ডায় পাম দেওয়ার ওস্তাদ সাইমনকে এখন যেকোনো ফান সার্ভিসের জন্য বুক করুন সম্পূর্ণ বিনামূল্যে!
+        </p>
+    </header>
+
+    <!-- Services / Packages -->
+    <main class="max-w-5xl mx-auto px-4 pb-16">
+        <h3 class="text-2xl font-bold mb-6 text-center border-b border-slate-800 pb-3">🔥 ফান সার্ভিস প্যাকেজসমূহ</h3>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <!-- Package 1 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition">
+                <div class="text-3xl mb-3">🏃‍♂️</div>
+                <h4 class="text-xl font-bold text-emerald-400 mb-2">বিপদ দেখলে ভোঁ দৌড় প্যাকেজ</h4>
+                <p class="text-slate-400 text-sm mb-4">হঠাৎ কোনো ঝামেলা বা স্যার সামনে পড়লে সাইমন সবার আগে আপনার থেকে ১০ হাত দূরে পালিয়ে গিয়ে চেনার ভান করবে না।</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded">মূল্য: ১ কাপ রং চা</span>
+                    <button onclick="bookService('ভো দৌড় প্যাকেজ')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-semibold transition">বুক করুন</button>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition">
+                <div class="text-3xl mb-3">🗣️</div>
+                <h4 class="text-xl font-bold text-emerald-400 mb-2">অযথা জ্ঞান ও পাম দেওয়া সার্ভিস</h4>
+                <p class="text-slate-400 text-sm mb-4">আড্ডায় বা জুনিয়রদের সামনে আপনাকে মহা পন্ডিত সাজাতে সাইমন এসে একটানা আবল-তাবল বকবে এবং আপনার সব কথায় বাহবা দেবে।</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded">মূল্য: ফ্রি (বদমাইশিতে ভরা)</span>
+                    <button onclick="bookService('পাম দেওয়া সার্ভিস')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-semibold transition">বুক করুন</button>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition">
+                <div class="text-3xl mb-3">💸</div>
+                <h4 class="text-xl font-bold text-emerald-400 mb-2">ধার চাওয়ার অজুহাত তৈরি</h4>
+                <p class="text-slate-400 text-sm mb-4">বিকাশ বা পকেটে টাকা না থাকলে এমন সব মর্মান্তিক ও মিথ্যা গল্প বানিয়ে দেবে যে, যে কেউ গলে গিয়ে টাকা দিতে বাধ্য হবে!</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded">মূল্য: ১ প্যাকেট চিপস</span>
+                    <button onclick="bookService('ধার চাওয়ার অজুহাত')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-semibold transition">বুক করুন</button>
+                </div>
+            </div>
+
+            <!-- Package 4 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition">
+                <div class="text-3xl mb-3">🛌</div>
+                <h4 class="text-xl font-bold text-emerald-400 mb-2">সার াদিন ঘুমিয়ে কাটানোর গাইড</h4>
+                <p class="text-slate-400 text-sm mb-4">কীভাবে কোনো কাজ ছাড়া ২৪ ঘণ্টার মধ্যে ১৮ ঘণ্টা ঘুমানো যায়, সাইমন তার নিজের প্র্যাক্টিক্যাল অভিজ্ঞতা দিয়ে আপনাকে শেখাবে।</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded">মূল্য: ১০০% ফ্রি</span>
+                    <button onclick="bookService('ঘুমের ট্রেনিং')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-semibold transition">বুক করুন</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Result Modal Box -->
+        <div id="bookingModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
+            <div class="bg-slate-900 border border-emerald-500/40 rounded-2xl p-6 max-w-md w-full text-center">
+                <div class="text-4xl mb-2">🎉</div>
+                <h4 class="text-2xl font-bold text-emerald-400 mb-2">বুকিং কনফার্মড!</h4>
+                <p id="modalText" class="text-slate-300 text-sm mb-6"></p>
+                <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-xl text-sm font-semibold w-full transition">মজা নিলাম, বন্ধ করো</button>
+            </div>
+        </div>
+
+        <!-- Comment Section -->
+        <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">💬 বন্ধুদের মন্তব্য (Wall of Shame)</h3>
+            
+            <div class="space-y-3 mb-6" id="commentList">
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-sm">
+                    <span class="font-semibold text-emerald-400">তারেক:</span> ভাই কালকে চা খাওয়াবি বলছিলি, সার্ভিস কবে পামু? ☕😂
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-sm">
+                    <span class="font-semibold text-cyan-400">জোনায়েদ:</span> এই পোলার সার্ভিস নিয়েছিলাম, ফোন দিলে শুধু রিং বাজে রিসিভ করে না! ১০/১০ বাটপার। 🐸🔥
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="text" id="commentInput" placeholder="আপনার একটা মজার কমেন্ট লিখুন..." class="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm flex-1 focus:outline-none focus:border-emerald-500">
+                <button onclick="addComment()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition">কমেন্ট করো</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-900">
+        © ২০২৬ Simon Service Ltd. — Developed under OVRANEQ Network & Prank Department 🐸✨
+    </footer>
+
+    <script>
+        function bookService(serviceName) {
+            const modal = document.getElementById('bookingModal');
+            const modalText = document.getElementById('modalText');
+            modalText.innerHTML = `অভিনন্দন! আপনি সফলভাবে <b>"${serviceName}"</b> বুক করেছেন। সাইমন খুব শীঘ্রই আপনার দেওয়া চা/চিপসের খোঁজে আপনার কাছে হাজির হবে! 🏃‍♂️💨`;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function addComment() {
+            const input = document.getElementById('commentInput');
+            const text = input.value.trim();
+            if(text === '') return;
+
+            const list = document.getElementById('commentList');
+            const newDiv = document.createElement('div');
+            newDiv.className = 'bg-slate-950 p-3 rounded-xl border border-slate-800 text-sm animate-fade-in';
+            newDiv.innerHTML = `<span class="font-semibold text-yellow-400">নাম প্রকাশে অনিচ্ছুক বন্ধু:</span> ${text} 🚀`;
+            list.prepend(newDiv);
+            input.value = '';
+        }
+    </script>
+</body>
+</html>
