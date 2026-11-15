@@ -3,159 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon's Post Portal - সাইমনের পোস্ট পোর্টাল</title>
+    <title>Simon's Project - E Code</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800">
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-    <!-- Header / Navbar -->
-    <header class="bg-indigo-600 text-white shadow-md py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">🚀 সাইমনের পোস্ট কর্নার</h1>
-            <span class="text-sm bg-indigo-700 px-3 py-1 rounded-full">E-Code V2.0</span>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="max-w-3xl mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-indigo-600">Simon's E-Code Portal</h1>
+            <span class="text-xs bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full font-medium">Active Mode</span>
         </div>
-    </header>
+    </nav>
 
-    <!-- Main Container -->
-    <main class="container mx-auto px-4 py-8 max-w-2xl">
+    <!-- Main Wrapper -->
+    <main class="max-w-3xl mx-auto px-4 py-6">
         
-        <!-- Post Creation Form -->
-        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
-            <h2 class="text-xl font-semibold mb-4 text-indigo-600">নতুন পোস্ট তৈরি কর</h2>
+        <!-- Post Upload Box -->
+        <div class="bg-white border rounded-2xl shadow-sm p-5 mb-6">
+            <h2 class="text-lg font-semibold mb-3 text-gray-800">নতুন কিছু পোস্ট করো</h2>
             
-            <form id="postForm" class="space-y-4">
+            <form id="ePostForm" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">তোর নাম</label>
-                    <input type="text" id="authorName" required placeholder="এখানে তোর নাম লিখ..." 
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <input type="text" id="userName" placeholder="তোমার নাম..." required
+                        class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">কী বলতে চাও?</label>
-                    <textarea id="postContent" rows="3" required placeholder="মনের কথা বা ক্যাপশন এখানে লিখ..." 
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                    <textarea id="userText" rows="3" placeholder="মনে কী আছে লিখে ফেলো..." required
+                        class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm resize-none"></textarea>
                 </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">ছবি আপলোড কর</label>
-                    <input type="file" id="postImage" accept="image/*" 
-                        class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
-                </div>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
+                    <label class="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 border border-dashed border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 text-sm text-gray-600">
+                        <span>📷 ছবি যুক্ত করো</span>
+                        <input type="file" id="userImage" accept="image/*" class="hidden">
+                    </label>
 
-                <button type="submit" 
-                    class="w-full bg-indigo-600 text-white font-semibold py-2 rounded-lg hover:bg-indigo-700 transition duration-200">
-                    পোস্ট পাবলিশ কর 📤
-                </button>
+                    <button type="submit" 
+                        class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-2 rounded-xl text-sm transition duration-150">
+                        পোস্ট করো
+                    </button>
+                </div>
+                <!-- Selected Image Name Preview -->
+                <p id="imageFileName" class="text-xs text-gray-400 hidden"></p>
             </form>
         </div>
 
-        <!-- Posts Feed Container -->
-        <div id="postsContainer" class="space-y-6">
-            <!-- ডাইনামিক পোস্টগুলো এখানে এসে জমা হবে -->
+        <!-- Post Feed Section -->
+        <div id="feedContainer" class="space-y-5">
+            <!-- ডাইনামিক পোস্টগুলো এখানে দেখাবে -->
         </div>
 
     </main>
 
-    <!-- JavaScript for Handling Posts and Images -->
+    <!-- JavaScript Core Logic -->
     <script>
-        const postForm = document.getElementById('postForm');
-        const postsContainer = document.getElementById('postsContainer');
+        const ePostForm = document.getElementById('ePostForm');
+        const feedContainer = document.getElementById('feedContainer');
+        const userImageInput = document.getElementById('userImage');
+        const imageFileName = document.getElementById('imageFileName');
 
-        // পেজ লোড হলে আগের পোস্টগুলো দেখানোর জন্য
-        document.addEventListener('DOMContentLoaded', loadPosts);
-
-        postForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const author = document.getElementById('authorName').value;
-            const content = document.getElementById('postContent').value;
-            const imageInput = document.getElementById('postImage');
-
-            const file = imageInput.files[0];
-
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const imageUrl = event.target.result;
-                    saveAndRenderPost(author, content, imageUrl);
-                    postForm.reset();
-                };
-                reader.readAsDataURL(file);
+        // ছবির নাম দেখানোর জন্য
+        userImageInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                imageFileName.textContent = "সিলেক্ট করা ফাইল: " + this.files[0].name;
+                imageFileName.classList.remove('hidden');
             } else {
-                saveAndRenderPost(author, content, null);
-                postForm.reset();
+                imageFileName.classList.add('hidden');
             }
         });
 
-        function saveAndRenderPost(author, content, imageUrl) {
-            const postData = {
+        // পেজ লোড হলে পোস্ট লোড হবে
+        document.addEventListener('DOMContentLoaded', loadAllPosts);
+
+        ePostForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('userName').value.trim();
+            const text = document.getElementById('userText').value.trim();
+            const imageFile = userImageInput.files[0];
+
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    savePost(name, text, event.target.result);
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                savePost(name, text, null);
+            }
+        });
+
+        function savePost(name, text, imageUrl) {
+            const newPost = {
                 id: Date.now(),
-                author,
-                content,
+                name,
+                text,
                 imageUrl,
-                date: new Date().toLocaleDateString('bn-BD', { hour: '2-digit', minute: '2-digit' })
+                time: new Date().toLocaleString('bn-BD', { dateStyle: 'short', timeStyle: 'short' })
             };
 
-            // লোকাল স্টোরেজে সেভ করা
-            let posts = JSON.parse(localStorage.getItem('simon_posts')) || [];
-            posts.unshift(postData); // নতুন পোস্ট সবার উপরে থাকবে
-            localStorage.setItem('simon_posts', JSON.stringify(posts));
+            let posts = JSON.parse(localStorage.getItem('simon_e_posts')) || [];
+            posts.unshift(newPost); // নতুন পোস্ট সবার উপরে
+            localStorage.setItem('simon_e_posts', JSON.stringify(posts));
 
-            renderPosts();
+            ePostForm.reset();
+            imageFileName.classList.add('hidden');
+            loadAllPosts();
         }
 
-        function loadPosts() {
-            renderPosts();
-        }
-
-        function renderPosts() {
-            let posts = JSON.parse(localStorage.getItem('simon_posts')) || [];
-            postsContainer.innerHTML = '';
+        function loadAllPosts() {
+            let posts = JSON.parse(localStorage.getItem('simon_e_posts')) || [];
+            feedContainer.innerHTML = '';
 
             if (posts.length === 0) {
-                postsContainer.innerHTML = `<p class="text-center text-gray-500">এখনো কোনো পোস্ট করা হয়নি। প্রথম পোস্ট তুই করে ফেল!</p>`;
+                feedContainer.innerHTML = `<div class="text-center py-8 text-gray-400 bg-white border rounded-2xl p-6">এখনো কোনো পোস্ট নেই। প্রথম পোস্ট তুমিই করো!</div>`;
                 return;
             }
 
             posts.forEach(post => {
-                const postCard = document.createElement('div');
-                postCard.className = 'bg-white rounded-xl shadow-md p-6 overflow-hidden';
-                
-                let imageHTML = post.imageUrl ? `<div class="mb-4 rounded-lg overflow-hidden max-h-96 flex justify-center bg-black/5"><img src="${post.imageUrl}" alt="Post Image" class="object-cover w-full"></div>` : '';
+                const card = document.createElement('div');
+                card.className = 'bg-white border rounded-2xl shadow-sm p-5 overflow-hidden';
 
-                postCard.innerHTML = `
-                    <div class="flex items-center justify-between mb-4">
+                let imgTag = post.imageUrl ? `
+                    <div class="mb-4 rounded-xl overflow-hidden bg-gray-100 flex justify-center max-h-[400px]">
+                        <img src="${post.imageUrl}" class="w-full object-cover" alt="Post Image">
+                    </div>` : '';
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
                         <div>
-                            <h3 class="font-bold text-gray-900">${escapeHtml(post.author)}</h3>
-                            <span class="text-xs text-gray-400">${post.date}</span>
+                            <h3 class="font-bold text-gray-800 text-base">${escapeHtml(post.name)}</h3>
+                            <span class="text-xs text-gray-400">${post.time}</span>
                         </div>
-                        <button onclick="deletePost(${post.id})" class="text-red-500 hover:text-red-700 text-sm">ডিলিট</button>
+                        <button onclick="removePost(${post.id})" class="text-gray-400 hover:text-red-500 text-xs px-2 py-1 transition">মুছে ফেলো</button>
                     </div>
-                    <p class="text-gray-700 mb-4 whitespace-pre-line">${escapeHtml(post.content)}</p>
-                    ${imageHTML}
+                    <p class="text-gray-700 text-sm mb-3 whitespace-pre-line leading-relaxed">${escapeHtml(post.text)}</p>
+                    ${imgTag}
                 `;
-                postsContainer.appendChild(postCard);
+                feedContainer.appendChild(card);
             });
         }
 
-        function deletePost(id) {
-            let posts = JSON.parse(localStorage.getItem('simon_posts')) || [];
-            posts = posts.filter(post => post.id !== id);
-            localStorage.setItem('simon_posts', JSON.stringify(posts));
-            renderPosts();
+        function removePost(id) {
+            let posts = JSON.parse(localStorage.getItem('simon_e_posts')) || [];
+            posts = posts.filter(p => p.id !== id);
+            localStorage.setItem('simon_e_posts', JSON.stringify(posts));
+            loadAllPosts();
         }
 
-        // সিকিউরিটির জন্য সিম্পল এস্কেপ ফাংশন
-        function escapeHtml(text) {
-            const map = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
-            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
     </script>
 </body>
