@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon Service - Professional Prank & Booking Hub</title>
+    <title>সাইমন সার্ভিস - প্রফেশনাল প্র্যাংক ও বুকিং হাব</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Supabase JS SDK -->
@@ -30,7 +30,7 @@
     <!-- Top Prank Warning Banner -->
     <div class="bg-brandRed text-white text-center py-2 px-4 font-bold text-sm flex items-center justify-center gap-2 shadow-md">
         <i class="fa-solid fa-triangle-exclamation animate-bounce"></i>
-        <span>WARNING: DO NOT CLICK THE RED BUTTON UNLESS YOU ARE READY FOR EXTREME LAUGHTER!</span>
+        <span>সতর্কবাণী: চরম হাসি-ঠাট্টার জন্য প্রস্তুত না থাকলে লাল বোতামে ক্লিক করবেন না!</span>
     </div>
 
     <!-- Header / Navbar -->
@@ -38,19 +38,19 @@
         <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brandYellow shadow-md bg-white">
-                    <img id="simonProfileImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Simon" class="w-full h-full object-cover">
+                    <img id="simonProfileImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="سائমন" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <h1 class="text-2xl font-black tracking-tight text-brandDark">Simon Service <span class="text-brandYellow">⚡</span></h1>
-                    <p class="text-xs text-gray-600 font-medium">World Class Professional Pranks & Chaos Management</p>
+                    <h1 class="text-2xl font-black tracking-tight text-brandDark">সাইমন সার্ভিস <span class="text-brandYellow">⚡</span></h1>
+                    <p class="text-xs text-gray-600 font-medium">ওয়ার্ল্ড ক্লাস প্রফেশনাল প্র্যাংক ও কজ ম্যানেজমেন্ট</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
                 <button onclick="openProfileModal()" class="bg-brandYellow hover:bg-yellow-500 text-brandDark font-bold px-4 py-2 rounded-xl text-sm shadow transition transform active:scale-95 flex items-center gap-2">
-                    <i class="fa-solid fa-gear"></i> ⚙️ Profile Edit
+                    <i class="fa-solid fa-gear"></i> ⚙️ প্রোফাইল এডিট
                 </button>
                 <button onclick="triggerPrankAlert()" class="bg-brandRed hover:bg-red-600 text-white font-black px-4 py-2 rounded-xl text-sm shadow transition transform active:scale-95 flex items-center gap-2">
-                    <i class="fa-solid fa-bomb"></i> Don't Click!
+                    <i class="fa-solid fa-bomb"></i> ক্লিক করবেন না!
                 </button>
             </div>
         </div>
@@ -65,26 +65,26 @@
             <!-- Booking Receipt Generator Section -->
             <section class="bg-brandSoftYellow border-2 border-yellow-300 rounded-3xl p-6 shadow-xl">
                 <h2 class="text-xl font-black mb-4 flex items-center gap-2 text-brandDark">
-                    <i class="fa-solid fa-file-invoice-dollar text-brandYellow"></i> Professional Booking & Receipt Generator
+                    <i class="fa-solid fa-file-invoice-dollar text-brandYellow"></i> প্রফেশনাল বুকিং ও রসিদ জেনারেটর
                 </h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1 uppercase">Client Name</label>
-                        <input type="text" id="clientNameInput" placeholder="Enter client/victim name..." class="w-full px-4 py-2 rounded-xl border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-brandYellow bg-white text-brandDark font-medium">
+                        <label class="block text-xs font-bold text-gray-700 mb-1 uppercase">ক্লায়েন্টের নাম (Client Name)</label>
+                        <input type="text" id="clientNameInput" placeholder="ক্লায়েন্ট বা শিকারের নাম লিখুন..." class="w-full px-4 py-2 rounded-xl border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-brandYellow bg-white text-brandDark font-medium">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1 uppercase">Select Prank Task</label>
+                        <label class="block text-xs font-bold text-gray-700 mb-1 uppercase">প্র্যাংক টাস্ক সিলেক্ট করুন</label>
                         <select id="taskSelect" class="w-full px-4 py-2 rounded-xl border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-brandYellow bg-white text-brandDark font-medium">
-                            <option value="Surprise Rubber Duck Shower">Surprise Rubber Duck Shower ($500)</option>
-                            <option value="Invisible Chair Prank">Invisible Chair Prank ($350)</option>
-                            <option value="Epic Coffee Spill Simulation">Epic Coffee Spill Simulation ($1,200)</option>
-                            <option value="Full Desk Stationery Jell-O Trap">Full Desk Stationery Jell-O Trap ($2,500)</option>
+                            <option value="সারপ্রাইজ রাবার ডাক শাওয়ার">সারপ্রাইজ রাবার ডাক শাওয়ার ($৫০০)</option>
+                            <option value="ইনভিজিবল চেয়ার প্র্যাংক">ইনভিজিবল চেয়ার প্র্যাংক ($৩৫০)</option>
+                            <option value="এপিক কফি স্পিল সিমুলেশন">এপিক কফি স্পিল সিমুলেশন ($১,২০০)</option>
+                            <option value="ফুল ডেস্ক স্টেশনারি জেলো ট্র্যাপ">ফুল ডেস্ক স্টেশনারি জেলো ট্র্যাপ ($২,৫০০)</option>
                         </select>
                     </div>
                 </div>
                 <div class="flex gap-4">
                     <button onclick="generateReceipt()" class="flex-1 bg-brandDark hover:bg-black text-brandYellow font-extrabold py-3 rounded-xl shadow transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-print"></i> Generate Official Receipt
+                        <i class="fa-solid fa-print"></i> অফিসিয়াল রসিদ তৈরি করুন
                     </button>
                 </div>
             </section>
@@ -92,16 +92,16 @@
             <!-- Dynamic Post Feed Section -->
             <section class="bg-white border border-gray-200 rounded-3xl p-6 shadow-lg">
                 <h2 class="text-xl font-black mb-4 flex items-center gap-2 text-brandDark">
-                    <i class="fa-solid fa-rss text-brandYellow"></i> Simon's Live Chaos Feed
+                    <i class="fa-solid fa-rss text-brandYellow"></i> সাইমনের লাইভ কজ ফিড
                 </h2>
                 
                 <!-- Post Creation Box -->
                 <div class="mb-6 bg-brandSoftYellow p-4 rounded-2xl border border-yellow-200">
-                    <textarea id="newPostText" rows="3" placeholder="What chaotic mission is Simon planning next?" class="w-full p-3 rounded-xl border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-brandYellow bg-white text-brandDark font-medium mb-3 resize-none"></textarea>
+                    <textarea id="newPostText" rows="3" placeholder="সাইমন পরবর্তীতে কী মারাত্মক প্র্যাংক প্ল্যান করছে?" class="w-full p-3 rounded-xl border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-brandYellow bg-white text-brandDark font-medium mb-3 resize-none"></textarea>
                     <div class="flex justify-between items-center">
-                        <span class="text-xs text-gray-500 font-semibold">Global Broadcast to All Devices</span>
+                        <span class="text-xs text-gray-500 font-semibold">সকল ডিভাইসে গ্লোবালি ব্রডকাস্ট হবে</span>
                         <button onclick="createNewPost()" class="bg-brandYellow hover:bg-yellow-500 text-brandDark font-black px-6 py-2 rounded-xl text-sm shadow transition">
-                            Publish Post 🚀
+                            পোস্ট প্রকাশ করুন 🚀
                         </button>
                     </div>
                 </div>
@@ -110,15 +110,15 @@
                 <div id="postsContainer" class="space-y-6">
                     <div class="p-4 bg-brandSoftYellow rounded-2xl border border-yellow-200">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-bold text-brandDark">Simon Vance</h3>
-                            <span class="text-xs text-gray-500">Just now</span>
+                            <h3 class="font-bold text-brandDark">সাইমন ভ্যান্স</h3>
+                            <span class="text-xs text-gray-500">এইমাত্র</span>
                         </div>
-                        <p class="text-gray-800 mb-3">Welcome to Simon Service! Ready to execute the greatest pranks worldwide.</p>
+                        <p class="text-gray-800 mb-3">সাইমন সার্ভিসে স্বাগতম! সারা বিশ্বে সেরা প্র্যাংকগুলো পরিচালনা করতে আমরা প্রস্তুত।</p>
                         <!-- Reactions -->
                         <div class="flex items-center gap-4 pt-2 border-t border-yellow-200 text-sm font-bold">
-                            <button onclick="react(this, '😂')" class="flex items-center gap-1 hover:text-brandYellow transition">😂 <span class="count">42</span></button>
-                            <button onclick="react(this, '🔥')" class="flex items-center gap-1 hover:text-brandYellow transition">🔥 <span class="count">28</span></button>
-                            <button onclick="react(this, '🐸')" class="flex items-center gap-1 hover:text-brandYellow transition">🐸 <span class="count">99</span></button>
+                            <button onclick="react(this, '😂')" class="flex items-center gap-1 hover:text-brandYellow transition">😂 <span class="count">৪২</span></button>
+                            <button onclick="react(this, '🔥')" class="flex items-center gap-1 hover:text-brandYellow transition">🔥 <span class="count">২৮</span></button>
+                            <button onclick="react(this, '🐸')" class="flex items-center gap-1 hover:text-brandYellow transition">🐸 <span class="count">৯৯</span></button>
                         </div>
                     </div>
                 </div>
@@ -130,20 +130,20 @@
         <div class="space-y-6">
             <div class="bg-brandSoftYellow border border-yellow-300 rounded-3xl p-6 shadow-md">
                 <h3 class="font-black text-lg mb-3 text-brandDark flex items-center gap-2">
-                    <i class="fa-solid fa-chart-line text-brandYellow"></i> Service Status
+                    <i class="fa-solid fa-chart-line text-brandYellow"></i> সার্ভিস স্ট্যাটাস
                 </h3>
                 <ul class="space-y-3 text-sm font-medium text-gray-700">
                     <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
-                        <span>Active Agents</span>
-                        <span class="font-bold text-brandDark">1,482</span>
+                        <span>সক্রিয় এজেন্ট</span>
+                        <span class="font-bold text-brandDark">১,৪৮২</span>
                     </li>
                     <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
-                        <span>Pranks Delivered</span>
-                        <span class="font-bold text-brandDark">9,850+</span>
+                        <span>সম্পন্ন প্র্যাংক</span>
+                        <span class="font-bold text-brandDark">৯,৮৫০+</span>
                     </li>
                     <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
-                        <span>Success Rate</span>
-                        <span class="font-bold text-green-600">99.9%</span>
+                        <span>সফলতার হার</span>
+                        <span class="font-bold text-green-600">৯৯.৯%</span>
                     </li>
                 </ul>
             </div>
@@ -152,10 +152,10 @@
                 <div class="w-16 h-16 bg-brandYellow rounded-full flex items-center justify-center mx-auto text-brandDark text-2xl font-black shadow-lg">
                     <i class="fa-solid fa-crown"></i>
                 </div>
-                <h3 class="text-xl font-black">Hire Simon Today</h3>
-                <p class="text-xs text-gray-300">Need absolute chaos or professional prank delivery? Book our elite team now.</p>
-                <button onclick="alert('Booking hotline is ringing... Prank initiated!')" class="w-full bg-brandYellow hover:bg-yellow-500 text-brandDark font-black py-3 rounded-xl shadow transition">
-                    Instant Book Now ⚡
+                <h3 class="text-xl font-black">আজই সাইমনকে হায়ার করুন</h3>
+                <p class="text-xs text-gray-300">চরম কোনো প্র্যাংক বা মজার কাজের জন্য আমাদের এলিট টিমকে এখনই বুক করুন।</p>
+                <button onclick="alert('বুকিং হটলাইন বাজছে... প্র্যাংক শুরু হয়ে গেছে!')" class="w-full bg-brandYellow hover:bg-yellow-500 text-brandDark font-black py-3 rounded-xl shadow transition">
+                    এখনই ইনস্ট্যান্ট বুক করুন ⚡
                 </button>
             </div>
         </div>
@@ -166,17 +166,17 @@
     <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl border-2 border-brandYellow space-y-4">
             <div class="flex justify-between items-center">
-                <h3 class="text-xl font-black text-brandDark">Update Simon's Profile</h3>
+                <h3 class="text-xl font-black text-brandDark">সাইমনের প্রোফাইল আপডেট করুন</h3>
                 <button onclick="closeProfileModal()" class="text-gray-500 hover:text-brandRed font-bold text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <p class="text-xs text-gray-600">Select a new profile image to update globally via Supabase cloud storage (`simon-bucket`).</p>
+            <p class="text-xs text-gray-600">সুপাবেস ক্লাউড স্টোরেজ (`simon-bucket`)-এর মাধ্যমে গ্লোবালি আপডেট করতে নতুন ছবি সিলেক্ট করুন।</p>
             <input type="file" id="profileImageInput" accept="image/*" class="w-full p-2 border border-yellow-300 rounded-xl text-sm bg-brandSoftYellow">
             <div class="flex gap-3 pt-2">
                 <button onclick="uploadProfileImage()" class="flex-1 bg-brandYellow hover:bg-yellow-500 text-brandDark font-black py-3 rounded-xl shadow transition">
-                    Upload & Save 🚀
+                    আপলোড ও সেভ করুন 🚀
                 </button>
                 <button onclick="closeProfileModal()" class="px-4 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold rounded-xl transition">
-                    Cancel
+                    বাতিল
                 </button>
             </div>
         </div>
@@ -187,30 +187,30 @@
         <div class="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-4 border-brandYellow space-y-6 relative">
             <button onclick="closeReceiptModal()" class="absolute top-4 right-4 text-gray-400 hover:text-brandRed font-bold text-xl"><i class="fa-solid fa-xmark"></i></button>
             <div class="text-center space-y-1">
-                <h3 class="text-2xl font-black text-brandDark">SIMON SERVICE RECEIPT</h3>
-                <p class="text-xs text-gray-500">Official Prank & Chaos Certification</p>
+                <h3 class="text-2xl font-black text-brandDark">সাইমন সার্ভিস রসিদ</h3>
+                <p class="text-xs text-gray-500">অফিসিয়াল প্র্যাংক ও কজ সার্টিফিকেশন</p>
             </div>
             <div class="bg-brandSoftYellow p-4 rounded-2xl border border-yellow-300 space-y-3 text-sm">
                 <div class="flex justify-between">
-                    <span class="font-bold text-gray-600">Client Name:</span>
+                    <span class="font-bold text-gray-600">ক্লায়েন্টের নাম:</span>
                     <span id="receiptClient" class="font-black text-brandDark"></span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="font-bold text-gray-600">Assigned Task:</span>
+                    <span class="font-bold text-gray-600">নির্ধারিত টাস্ক:</span>
                     <span id="receiptTask" class="font-black text-brandDark"></span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="font-bold text-gray-600">Date:</span>
+                    <span class="font-bold text-gray-600">তারিখ:</span>
                     <span id="receiptDate" class="font-medium text-brandDark"></span>
                 </div>
                 <div class="flex justify-between border-t border-yellow-300 pt-2">
-                    <span class="font-bold text-gray-600">Status:</span>
-                    <span class="font-black text-green-600">CONFIRMED & READY</span>
+                    <span class="font-bold text-gray-600">স্ট্যাটাস:</span>
+                    <span class="font-black text-green-600">কনফার্মড ও প্রস্তুত</span>
                 </div>
             </div>
             <div class="flex gap-4">
                 <button onclick="window.print()" class="flex-1 bg-brandDark hover:bg-black text-brandYellow font-extrabold py-3 rounded-xl shadow transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-download"></i> Print / Download Receipt
+                    <i class="fa-solid fa-download"></i> প্রিন্ট বা ডাউনলোড করুন
                 </button>
             </div>
         </div>
@@ -221,10 +221,10 @@
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             <div>
                 <h3 class="text-xl font-black tracking-wider text-brandYellow">OVRANEQ GROUP</h3>
-                <p class="text-xs text-gray-400 mt-1">Master Holding & Enterprise Solutions</p>
+                <p class="text-xs text-gray-400 mt-1">মাস্টার হোল্ডিং অ্যান্ড এন্টারপ্রাইজ সলিউশন্স</p>
             </div>
             <div class="text-sm font-semibold text-gray-300">
-                Crafted with ⚡ by <span class="text-brandYellow font-bold">ZOBAID KHAN TANVIR</span>
+                ⚡ দিয়ে তৈরি করেছেন <span class="text-brandYellow font-bold">ZOBAID KHAN TANVIR</span>
             </div>
         </div>
     </footer>
@@ -251,7 +251,7 @@
             document.getElementById('receiptModal').classList.add('hidden');
         }
         function triggerPrankAlert() {
-            alert('🚨 PRANK ALERT TRIGGERED! Simon has been notified to deploy maximum chaos!');
+            alert('🚨 প্র্যাংক অ্যালার্ট ট্রিগার হয়েছে! সাইমনকে চরম কজ সৃষ্টির জন্য নোটিফিকেশন পাঠানো হয়েছে!');
         }
 
         // Receipt Generator Logic
@@ -259,20 +259,20 @@
             const client = document.getElementById('clientNameInput').value.trim();
             const task = document.getElementById('taskSelect').value;
             if(!client) {
-                alert('Please enter a client/victim name first!');
+                alert('দয়া করে আগে ক্লায়েন্ট বা শিকারের নাম লিখুন!');
                 return;
             }
             document.getElementById('receiptClient').innerText = client;
             document.getElementById('receiptTask').innerText = task;
-            document.getElementById('receiptDate').innerText = new Date().toLocaleDateString();
+            document.getElementById('receiptDate').innerText = new Date().toLocaleDateString('bn-BD');
             document.getElementById('receiptModal').classList.remove('hidden');
         }
 
-        // Profile Image Upload via Supabase Storage
+        // Profile Image Upload via Supabase Storage with Instant Live Preview
         async function uploadProfileImage() {
             const fileInput = document.getElementById('profileImageInput');
             if(fileInput.files.length === 0) {
-                alert('Please select an image file first.');
+                alert('দয়া করে প্রথমে একটি ছবি সিলেক্ট করুন।');
                 return;
             }
             const file = fileInput.files[0];
@@ -291,10 +291,10 @@
                     document.getElementById('simonProfileImg').src = fakeUrl;
                 }
                 
-                alert('✅ Simon profile image successfully uploaded & saved via Supabase storage (`simon-bucket`)!');
+                alert('✅ সাইমনের প্রোফাইল ছবি সফলভাবে সুপাবেস স্টোরেজে (`simon-bucket`) আপলোড ও সেভ হয়েছে!');
                 closeProfileModal();
             } catch (err) {
-                alert('Upload error: ' + err.message);
+                alert('আপলোড এরর: ' + err.message);
             }
         }
 
@@ -316,14 +316,14 @@
             const postHTML = `
                 <div class="p-4 bg-brandSoftYellow rounded-2xl border border-yellow-200 shadow-sm animate-fade-in">
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="font-bold text-brandDark">Simon Vance</h3>
-                        <span class="text-xs text-gray-500">Just now</span>
+                        <h3 class="font-bold text-brandDark">সাইমন ভ্যান্স</h3>
+                        <span class="text-xs text-gray-500">এইমাত্র</span>
                     </div>
                     <p class="text-gray-800 mb-3">${escapeHtml(text)}</p>
                     <div class="flex items-center gap-4 pt-2 border-t border-yellow-200 text-sm font-bold">
-                        <button onclick="react(this, '😂')" class="flex items-center gap-1 hover:text-brandYellow transition">😂 <span class="count">1</span></button>
-                        <button onclick="react(this, '🔥')" class="flex items-center gap-1 hover:text-brandYellow transition">🔥 <span class="count">0</span></button>
-                        <button onclick="react(this, '🐸')" class="flex items-center gap-1 hover:text-brandYellow transition">🐸 <span class="count">3</span></button>
+                        <button onclick="react(this, '😂')" class="flex items-center gap-1 hover:text-brandYellow transition">😂 <span class="count">১</span></button>
+                        <button onclick="react(this, '🔥')" class="flex items-center gap-1 hover:text-brandYellow transition">🔥 <span class="count">০</span></button>
+                        <button onclick="react(this, '🐸')" class="flex items-center gap-1 hover:text-brandYellow transition">🐸 <span class="count">৩</span></button>
                     </div>
                 </div>
             `;
