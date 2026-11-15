@@ -38,7 +38,7 @@
         <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brandYellow shadow-md bg-white">
-                    <img id="simonProfileImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="سائমন" class="w-full h-full object-cover">
+                    <img id="simonProfileImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="সাইমন" class="w-full h-full object-cover">
                 </div>
                 <div>
                     <h1 class="text-2xl font-black tracking-tight text-brandDark">সাইমন সার্ভিস <span class="text-brandYellow">⚡</span></h1>
@@ -231,14 +231,14 @@
 
     <!-- Supabase Client & App Script -->
     <script>
-        // Supabase Configuration
+        // Supabase Configuration with your provided Key
         const SUPABASE_URL = 'https://prkjykwnfzlpuoxximpo.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBya2p5a3duZnpscHVveHhpbXBvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA5Nzk4ODgsImV4cCI6MjA4NjU1NTg4OH0.placeholder';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBya2p5a3duZnpscHVveHhpbXBvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzMjIxOTMsImV4cCI6MjEwNzg5ODE5M30.dDl_QSDxiQn4BtAchWYU1a8ygbyRcnecAwbjSrN6Fa8';
         
         let supabaseClient = null;
         try {
             supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        } catch(e) { console.log('Supabase init note:', e); }
+        } catch(e) { console.log('Supabase init error:', e); }
 
         // Modal Controls
         function openProfileModal() {
@@ -282,6 +282,7 @@
                 if (supabaseClient) {
                     const { data, error } = await supabaseClient.storage.from('simon-bucket').upload(fileName, file);
                     if (error) throw error;
+                    
                     const { data: publicUrlData } = supabaseClient.storage.from('simon-bucket').getPublicUrl(fileName);
                     if (publicUrlData && publicUrlData.publicUrl) {
                         document.getElementById('simonProfileImg').src = publicUrlData.publicUrl;
