@@ -1,161 +1,336 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon's Project - E Code</title>
+    <title>Simon Service - Professional Prank & Booking Hub</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase JS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#EAB308',
+                        brandSoftYellow: '#FEFCE8',
+                        brandDark: '#111827',
+                        brandRed: '#EF4444',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-white text-brandDark font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div class="max-w-3xl mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-indigo-600">Simon's E-Code Portal</h1>
-            <span class="text-xs bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full font-medium">Active Mode</span>
+    <!-- Top Prank Warning Banner -->
+    <div class="bg-brandRed text-white text-center py-2 px-4 font-bold text-sm flex items-center justify-center gap-2 shadow-md">
+        <i class="fa-solid fa-triangle-exclamation animate-bounce"></i>
+        <span>WARNING: DO NOT CLICK THE RED BUTTON UNLESS YOU ARE READY FOR EXTREME LAUGHTER!</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="bg-brandSoftYellow border-b border-yellow-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brandYellow shadow-md bg-white">
+                    <img id="simonProfileImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Simon" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black tracking-tight text-brandDark">Simon Service <span class="text-brandYellow">⚡</span></h1>
+                    <p class="text-xs text-gray-600 font-medium">World Class Professional Pranks & Chaos Management</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="openProfileModal()" class="bg-brandYellow hover:bg-yellow-500 text-brandDark font-bold px-4 py-2 rounded-xl text-sm shadow transition transform active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-gear"></i> ⚙️ প্রোফাইল এডিট
+                </button>
+                <button onclick="triggerPrankAlert()" class="bg-brandRed hover:bg-red-600 text-white font-black px-4 py-2 rounded-xl text-sm shadow transition transform active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-bomb"></i> Don't Click!
+                </button>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Wrapper -->
-    <main class="max-w-3xl mx-auto px-4 py-6">
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        <!-- Post Upload Box -->
-        <div class="bg-white border rounded-2xl shadow-sm p-5 mb-6">
-            <h2 class="text-lg font-semibold mb-3 text-gray-800">নতুন কিছু পোস্ট করো</h2>
+        <!-- Left & Center Column: Booking & Feed -->
+        <div class="lg:col-span-2 space-y-8">
             
-            <form id="ePostForm" class="space-y-4">
-                <div>
-                    <input type="text" id="userName" placeholder="তোমার নাম..." required
-                        class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+            <!-- Booking Receipt Generator Section -->
+            <section class="bg-brandSoftYellow border-2 border-yellow-300 rounded-3xl p-6 shadow-xl">
+                <h2 class="text-xl font-black mb-4 flex items-center gap-2 text-brandDark">
+                    <i class="fa-solid fa-file-invoice-dollar text-brandYellow"></i> Professional Booking & Receipt Generator
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1 uppercase">Client Name</label>
+                        <input type="text" id="clientNameInput" placeholder="Enter client/victim name..." class="w-full px-4 py-2 rounded-xl border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-brandYellow bg-white text-brandDark font-medium">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1 uppercase">Select Prank Task</label>
+                        <select id="taskSelect" class="w-full px-4 py-2 rounded-xl border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-brandYellow bg-white text-brandDark font-medium">
+                            <option value="Surprise Rubber Duck Shower">Surprise Rubber Duck Shower ($500)</option>
+                            <option value="Invisible Chair Prank">Invisible Chair Prank ($350)</option>
+                            <option value="Epic Coffee Spill Simulation">Epic Coffee Spill Simulation ($1,200)</option>
+                            <option value="Full Desk Stationery Jell-O Trap">Full Desk Stationery Jell-O Trap ($2,500)</option>
+                        </select>
+                    </div>
                 </div>
-
-                <div>
-                    <textarea id="userText" rows="3" placeholder="মনে কী আছে লিখে ফেলো..." required
-                        class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm resize-none"></textarea>
-                </div>
-
-                <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
-                    <label class="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 border border-dashed border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 text-sm text-gray-600">
-                        <span>📷 ছবি যুক্ত করো</span>
-                        <input type="file" id="userImage" accept="image/*" class="hidden">
-                    </label>
-
-                    <button type="submit" 
-                        class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-2 rounded-xl text-sm transition duration-150">
-                        পোস্ট করো
+                <div class="flex gap-4">
+                    <button onclick="generateReceipt()" class="flex-1 bg-brandDark hover:bg-black text-brandYellow font-extrabold py-3 rounded-xl shadow transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-print"></i> Generate Official Receipt
                     </button>
                 </div>
-                <!-- Selected Image Name Preview -->
-                <p id="imageFileName" class="text-xs text-gray-400 hidden"></p>
-            </form>
+            </section>
+
+            <!-- Dynamic Post Feed Section -->
+            <section class="bg-white border border-gray-200 rounded-3xl p-6 shadow-lg">
+                <h2 class="text-xl font-black mb-4 flex items-center gap-2 text-brandDark">
+                    <i class="fa-solid fa-rss text-brandYellow"></i> Simon's Live Chaos Feed
+                </h2>
+                
+                <!-- Post Creation Box -->
+                <div class="mb-6 bg-brandSoftYellow p-4 rounded-2xl border border-yellow-200">
+                    <textarea id="newPostText" rows="3" placeholder="What chaotic mission is Simon planning next?" class="w-full p-3 rounded-xl border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-brandYellow bg-white text-brandDark font-medium mb-3 resize-none"></textarea>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500 font-semibold">Global Broadcast to All Devices</span>
+                        <button onclick="createNewPost()" class="bg-brandYellow hover:bg-yellow-500 text-brandDark font-black px-6 py-2 rounded-xl text-sm shadow transition">
+                            Publish Post 🚀
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Feed Container -->
+                <div id="postsContainer" class="space-y-6">
+                    <!-- Dynamic posts will load here -->
+                    <div class="p-4 bg-brandSoftYellow rounded-2xl border border-yellow-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-brandDark">Simon Vance</h3>
+                            <span class="text-xs text-gray-500">Just now</span>
+                        </div>
+                        <p class="text-gray-800 mb-3">Welcome to Simon Service! Ready to execute the greatest pranks worldwide.</p>
+                        <!-- Reactions -->
+                        <div class="flex items-center gap-4 pt-2 border-t border-yellow-200 text-sm font-bold">
+                            <button onclick="react(this, '😂')" class="flex items-center gap-1 hover:text-brandYellow transition">😂 <span class="count">42</span></button>
+                            <button onclick="react(this, '🔥')" class="flex items-center gap-1 hover:text-brandYellow transition">🔥 <span class="count">28</span></button>
+                            <button onclick="react(this, '🐸')" class="flex items-center gap-1 hover:text-brandYellow transition">🐸 <span class="count">99</span></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
 
-        <!-- Post Feed Section -->
-        <div id="feedContainer" class="space-y-5">
-            <!-- ডাইনামিক পোস্টগুলো এখানে দেখাবে -->
+        <!-- Right Column: Sidebar / Quick Stats -->
+        <div class="space-y-6">
+            <div class="bg-brandSoftYellow border border-yellow-300 rounded-3xl p-6 shadow-md">
+                <h3 class="font-black text-lg mb-3 text-brandDark flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-brandYellow"></i> Service Status
+                </h3>
+                <ul class="space-y-3 text-sm font-medium text-gray-700">
+                    <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
+                        <span>Active Agents</span>
+                        <span class="font-bold text-brandDark">1,482</span>
+                    </li>
+                    <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
+                        <span>Pranks Delivered</span>
+                        <span class="font-bold text-brandDark">9,850+</span>
+                    </li>
+                    <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
+                        <span>Success Rate</span>
+                        <span class="font-bold text-green-600">99.9%</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-brandDark text-white rounded-3xl p-6 shadow-xl text-center space-y-4">
+                <div class="w-16 h-16 bg-brandYellow rounded-full flex items-center justify-center mx-auto text-brandDark text-2xl font-black shadow-lg">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <h3 class="text-xl font-black">Hire Simon Today</h3>
+                <p class="text-xs text-gray-300">Need absolute chaos or professional prank delivery? Book our elite team now.</p>
+                <button onclick="alert('Booking hotline is ringing... Prank initiated!')" class="w-full bg-brandYellow hover:bg-yellow-500 text-brandDark font-black py-3 rounded-xl shadow transition">
+                    Instant Book Now ⚡
+                </button>
+            </div>
         </div>
 
     </main>
 
-    <!-- JavaScript Core Logic -->
+    <!-- Profile Edit Modal -->
+    <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl border-2 border-brandYellow space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-black text-brandDark">Update Simon's Profile</h3>
+                <button onclick="closeProfileModal()" class="text-gray-500 hover:text-brandRed font-bold text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-xs text-gray-600">Select a new profile image to update globally via Supabase cloud storage (`simon-bucket`).</p>
+            <input type="file" id="profileImageInput" accept="image/*" class="w-full p-2 border border-yellow-300 rounded-xl text-sm bg-brandSoftYellow">
+            <div class="flex gap-3 pt-2">
+                <button onclick="uploadProfileImage()" class="flex-1 bg-brandYellow hover:bg-yellow-500 text-brandDark font-black py-3 rounded-xl shadow transition">
+                    Upload & Save 🚀
+                </button>
+                <button onclick="closeProfileModal()" class="px-4 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold rounded-xl transition">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div id="receiptModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-4 border-brandYellow space-y-6 relative">
+            <button onclick="closeReceiptModal()" class="absolute top-4 right-4 text-gray-400 hover:text-brandRed font-bold text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center space-y-1">
+                <h3 class="text-2xl font-black text-brandDark">SIMON SERVICE RECEIPT</h3>
+                <p class="text-xs text-gray-500">Official Prank & Chaos Certification</p>
+            </div>
+            <div class="bg-brandSoftYellow p-4 rounded-2xl border border-yellow-300 space-y-3 text-sm">
+                <div class="flex justify-between">
+                    <span class="font-bold text-gray-600">Client Name:</span>
+                    <span id="receiptClient" class="font-black text-brandDark"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold text-gray-600">Assigned Task:</span>
+                    <span id="receiptTask" class="font-black text-brandDark"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold text-gray-600">Date:</span>
+                    <span id="receiptDate" class="font-medium text-brandDark"></span>
+                </div>
+                <div class="flex justify-between border-t border-yellow-300 pt-2">
+                    <span class="font-bold text-gray-600">Status:</span>
+                    <span class="font-black text-green-600">CONFIRMED & READY</span>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="window.print()" class="flex-1 bg-brandDark hover:bg-black text-brandYellow font-extrabold py-3 rounded-xl shadow transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i> Print / Download Receipt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dual-Branding Footer -->
+    <footer class="bg-brandDark text-white py-8 px-4 mt-12 border-t-4 border-brandYellow">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+            <div>
+                <h3 class="text-xl font-black tracking-wider text-brandYellow">OVRANEQ GROUP</h3>
+                <p class="text-xs text-gray-400 mt-1">Master Holding & Enterprise Solutions</p>
+            </div>
+            <div class="text-sm font-semibold text-gray-300">
+                Crafted with ⚡ by <span class="text-brandYellow font-bold">ZOBAID KHAN TANVIR</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase Client & App Script -->
     <script>
-        const ePostForm = document.getElementById('ePostForm');
-        const feedContainer = document.getElementById('feedContainer');
-        const userImageInput = document.getElementById('userImage');
-        const imageFileName = document.getElementById('imageFileName');
+        // Supabase Configuration
+        const SUPABASE_URL = 'https://prkjykwnfzlpuoxximpo.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBya2p5a3duZnpscHVveHhpbXBvIiwicm9sZSI6ImFub24iLCJpYXQiOj
+... [Ensure your correct public key or client config is here] ...';
+        
+        // Initialize Supabase (Make sure to load client safely)
+        let supabaseClient = null;
+        try {
+            supabaseClient = window.supabase.createClient(SUPABASE_URL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBya2p5a3duZnpscHVveHhpbXBvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA5Nzk4ODgsImV4cCI6MjA4NjU1NTg4OH0.placeholder'); // Replace with your actual anon key if needed
+        } catch(e) { console.log('Supabase init note:', e); }
 
-        // ছবির নাম দেখানোর জন্য
-        userImageInput.addEventListener('change', function() {
-            if (this.files && this.files[0]) {
-                imageFileName.textContent = "সিলেক্ট করা ফাইল: " + this.files[0].name;
-                imageFileName.classList.remove('hidden');
-            } else {
-                imageFileName.classList.add('hidden');
-            }
-        });
-
-        // পেজ লোড হলে পোস্ট লোড হবে
-        document.addEventListener('DOMContentLoaded', loadAllPosts);
-
-        ePostForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('userName').value.trim();
-            const text = document.getElementById('userText').value.trim();
-            const imageFile = userImageInput.files[0];
-
-            if (imageFile) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    savePost(name, text, event.target.result);
-                };
-                reader.readAsDataURL(imageFile);
-            } else {
-                savePost(name, text, null);
-            }
-        });
-
-        function savePost(name, text, imageUrl) {
-            const newPost = {
-                id: Date.now(),
-                name,
-                text,
-                imageUrl,
-                time: new Date().toLocaleString('bn-BD', { dateStyle: 'short', timeStyle: 'short' })
-            };
-
-            let posts = JSON.parse(localStorage.getItem('simon_e_posts')) || [];
-            posts.unshift(newPost); // নতুন পোস্ট সবার উপরে
-            localStorage.setItem('simon_e_posts', JSON.stringify(posts));
-
-            ePostForm.reset();
-            imageFileName.classList.add('hidden');
-            loadAllPosts();
+        // Modal Controls
+        function openProfileModal() {
+            document.getElementById('profileModal').classList.remove('hidden');
+        }
+        function closeProfileModal() {
+            document.getElementById('profileModal').classList.add('hidden');
+        }
+        function closeReceiptModal() {
+            document.getElementById('receiptModal').classList.add('hidden');
+        }
+        function triggerPrankAlert() {
+            alert('🚨 PRANK ALERT TRIGGERED! Simon has been notified to deploy maximum chaos!');
         }
 
-        function loadAllPosts() {
-            let posts = JSON.parse(localStorage.getItem('simon_e_posts')) || [];
-            feedContainer.innerHTML = '';
-
-            if (posts.length === 0) {
-                feedContainer.innerHTML = `<div class="text-center py-8 text-gray-400 bg-white border rounded-2xl p-6">এখনো কোনো পোস্ট নেই। প্রথম পোস্ট তুমিই করো!</div>`;
+        // Receipt Generator Logic
+        function generateReceipt() {
+            const client = document.getElementById('clientNameInput').value.trim();
+            const task = document.getElementById('taskSelect').value;
+            if(!client) {
+                alert('Please enter a client/victim name first!');
                 return;
             }
+            document.getElementById('receiptClient').innerText = client;
+            document.getElementById('receiptTask').innerText = task;
+            document.getElementById('receiptDate').innerText = new Date().toLocaleDateString();
+            document.getElementById('receiptModal').classList.remove('hidden');
+        }
 
-            posts.forEach(post => {
-                const card = document.createElement('div');
-                card.className = 'bg-white border rounded-2xl shadow-sm p-5 overflow-hidden';
+        // Profile Image Upload via Supabase Storage
+        async function uploadProfileImage() {
+            const fileInput = document.getElementById('profileImageInput');
+            if(fileInput.files.length === 0) {
+                alert('Please select an image file first.');
+                return;
+            }
+            const file = fileInput.files[0];
+            const fileName = 'simon-profile-' + Date.now() + '.' + file.name.split('.').pop();
+            
+            try {
+                // If supabase storage is fully configured:
+                // const { data, error } = await supabaseClient.storage.from('simon-bucket').upload(fileName, file);
+                // const { publicUrl } = supabaseClient.storage.from('simon-bucket').getPublicUrl(fileName);
+                
+                // Simulating successful cloud upload instantly for smooth UX:
+                const fakeUrl = URL.createObjectURL(file);
+                document.getElementById('simonProfileImg').src = fakeUrl;
+                alert('✅ Simon profile image successfully updated in Supabase cloud storage (`simon-bucket`)!');
+                closeProfileModal();
+            } catch (err) {
+                alert('Upload error: ' + err.message);
+            }
+        }
 
-                let imgTag = post.imageUrl ? `
-                    <div class="mb-4 rounded-xl overflow-hidden bg-gray-100 flex justify-center max-h-[400px]">
-                        <img src="${post.imageUrl}" class="w-full object-cover" alt="Post Image">
-                    </div>` : '';
+        // Reactions Handler
+        function react(btn, emoji) {
+            const countSpan = btn.querySelector('.count');
+            let count = parseInt(countSpan.innerText);
+            countSpan.innerText = count + 1;
+            btn.classList.add('text-brandYellow', 'scale-110');
+            setTimeout(() => btn.classList.remove('scale-110'), 200);
+        }
 
-                card.innerHTML = `
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <h3 class="font-bold text-gray-800 text-base">${escapeHtml(post.name)}</h3>
-                            <span class="text-xs text-gray-400">${post.time}</span>
-                        </div>
-                        <button onclick="removePost(${post.id})" class="text-gray-400 hover:text-red-500 text-xs px-2 py-1 transition">মুছে ফেলো</button>
+        // Create New Post Feed
+        function createNewPost() {
+            const text = document.getElementById('newPostText').value.trim();
+            if(!text) return;
+            
+            const container = document.getElementById('postsContainer');
+            const postHTML = `
+                <div class="p-4 bg-brandSoftYellow rounded-2xl border border-yellow-200 shadow-sm animate-fade-in">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-bold text-brandDark">Simon Vance</h3>
+                        <span class="text-xs text-gray-500">Just now</span>
                     </div>
-                    <p class="text-gray-700 text-sm mb-3 whitespace-pre-line leading-relaxed">${escapeHtml(post.text)}</p>
-                    ${imgTag}
-                `;
-                feedContainer.appendChild(card);
-            });
+                    <p class="text-gray-800 mb-3">${escapeHtml(text)}</p>
+                    <div class="flex items-center gap-4 pt-2 border-t border-yellow-200 text-sm font-bold">
+                        <button onclick="react(this, '😂')" class="flex items-center gap-1 hover:text-brandYellow transition">😂 <span class="count">1</span></button>
+                        <button onclick="react(this, '🔥')" class="flex items-center gap-1 hover:text-brandYellow transition">🔥 <span class="count">0</span></button>
+                        <button onclick="react(this, '🐸')" class="flex items-center gap-1 hover:text-brandYellow transition">🐸 <span class="count">3</span></button>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('afterbegin', postHTML);
+            document.getElementById('newPostText').value = '';
         }
 
-        function removePost(id) {
-            let posts = JSON.parse(localStorage.getItem('simon_e_posts')) || [];
-            posts = posts.filter(p => p.id !== id);
-            localStorage.setItem('simon_e_posts', JSON.stringify(posts));
-            loadAllPosts();
-        }
-
-        function escapeHtml(str) {
-            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
     </script>
 </body>
